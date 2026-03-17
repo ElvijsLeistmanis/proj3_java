@@ -40,10 +40,27 @@ public class Post {
 	}
 	
 	
-	
-
 	//4 abi konstruktori
+	public Post() {
+		setMsg("Sveiciens!");
+		//ta ka datetime mainigais ir inicializets ar datetime = LocalDateTime.now(), tad nevajag izsaukt set funkciju
+		//ta ka countOfLikes mainigais ir inicializets uz 0, tad seit nevajg set funkciju izsaukt
+	}
+	
+	public Post(String inputMsg) {
+		setMsg(inputMsg);
+		//ta ka datetime mainigais ir inicializets ar datetime = LocalDateTime.now(), tad nevajag izsaukt set funkciju
+		//ta ka countOfLikes mainigais ir inicializets uz 0, tad seit nevajg set funkciju izsaukt
+
+	}
+	
 	//5.toString
+	public String toString() {
+		String result = msg + " (" + datetime + "), " + countOfLikes + " patik iezimes";
+		return result;
+	}
+	
+	
 	//6.citas funkcijas (pec nepieciesamibas)
 
 }
