@@ -1,6 +1,7 @@
 package model.users;
 
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import model.enums.PostType;
 import service.Iposts;
@@ -77,5 +78,20 @@ public abstract class RegisteredUser extends GuestUser implements Iposts{
 	}
 	
 	//6.parejas funkcijas
-
+	
+	public boolean login (String inputUsername, String inputPassword) throws NoSuchAlgorithmException {
+		for(GuestUser tempUser : MainService.getAllUsers()) {
+			if (tempUser instanceof RegisteredUser) {
+				RegisteredUser tempRU = (RegisteredUser)tempUser;
+				
+				MessageDigest md = MessageDigest.getInstance("MD5");
+				md.update(inputPassword.getBytes());
+				String inputPasswordEncoded = md.digest().toString();
+				
+				if(tempRU.getUsername().equals(inputUsername) && tempRU.getPassword().equals(inputPasswordEncoded)) {
+					
+				}
+			}
+		}
+	}
 }

@@ -28,4 +28,7 @@ public class MainService {
 		System.out.println(allUsers);
 	}
 
+	public static ArrayList<GuestUser> getAllUsers() {
+		return allUsers;
+	}
 }
