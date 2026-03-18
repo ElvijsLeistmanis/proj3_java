@@ -2,7 +2,10 @@ package model.users;
 
 import java.security.MessageDigest;
 
-public class RegisteredUser extends GuestUser{
+import model.enums.PostType;
+import service.Iposts;
+
+public abstract class RegisteredUser extends GuestUser implements Iposts{
 	//1.mainigie
 	private String username;
 	private String password;
