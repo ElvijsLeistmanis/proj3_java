@@ -24,7 +24,7 @@ public class Page {
 	}
 	
 	public void setTitle(String title) {
-		if(title != null && !title.isEmpty()) {
+		if(title != null && !title.isEmpty() && title.matches("[A-Z]{1}[a-zA-Z0-9 .,{3, 30}")) {
 			this.title = title;
 		}
 		else {
@@ -33,7 +33,7 @@ public class Page {
 		
 	}
 	public void setDescription(String description) {
-		if(description != null && !description.isEmpty()) {
+		if(description != null && !description.isEmpty() && description.matches("[a-zA-Z0-9 .,{3, 300}")) {
 			this.description = description;
 		}
 		else {
