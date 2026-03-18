@@ -34,16 +34,18 @@ public class RegisteredUser extends GuestUser{
 	}
 	public void setPassword(String inputPassword) {
 		
-		//TODO parbaudit != null, not empty, masku
-		
-		try
-		{
+		if (inputPassword != null && !inputPassword.isEmpty()) {
+		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			md.update(inputPassword.getBytes());
 			password = md.digest().toString();
 		}
 		catch (Exception e) {
 			// TODO: handle exception
+			}
+		}
+		else {
+			password = "0000";
 		}
 	}
 	public void setTitle(String title) {
@@ -52,7 +54,25 @@ public class RegisteredUser extends GuestUser{
 	
 	
 	//4.abi konstruktori
+	public RegisteredUser() {
+		super();
+		username = "DefaultUser";
+		password = "0000";
+		title = "";
+	}
+	
+	public RegisteredUser(String username, String password, String title) {
+		super();
+		setUsername(username);
+		setPassword(password);
+		setTitle(title);
+	}
+	
 	//5.toString
+	public String toString() {
+		return "Registered user " + id + ": " + username + " " + password;
+	}
+	
 	//6.parejas funkcijas
 
 }
